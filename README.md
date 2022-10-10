@@ -84,13 +84,14 @@ IMPORTANT! If you have a custom domain with Gmail, you might need to click OK, r
 Open the file named index.html. On line 12 replace <SCRIPT URL> with your script url:
 
   
-**  
+  <code>
 <form name="submit-to-google-sheet">
   <input name="email" type="email" placeholder="Email" required>
   <button type="submit">Send</button>
 </form>
 
-<script>
+<script> 
+  
   const scriptURL = '<SCRIPT URL>'
   const form = document.forms['submit-to-google-sheet']
 
@@ -100,8 +101,10 @@ Open the file named index.html. On line 12 replace <SCRIPT URL> with your script
       .then(response => console.log('Success!', response))
       .catch(error => console.error('Error!', error.message))
   })
-</script>**
   
+</script>
+  
+  </code>
   
   
 As you can see, this script uses the the Fetch API, a fairly new promise-based mechanism for making web requests. It makes a "POST" request to your script URL and uses FormData to pass in our data as URL paramters.
