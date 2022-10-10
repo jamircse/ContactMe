@@ -84,8 +84,7 @@ IMPORTANT! If you have a custom domain with Gmail, you might need to click OK, r
 Open the file named index.html. On line 12 replace <SCRIPT URL> with your script url:
 
   
-  
-  
+**  
 <form name="submit-to-google-sheet">
   <input name="email" type="email" placeholder="Email" required>
   <button type="submit">Send</button>
@@ -101,7 +100,7 @@ Open the file named index.html. On line 12 replace <SCRIPT URL> with your script
       .then(response => console.log('Success!', response))
       .catch(error => console.error('Error!', error.message))
   })
-</script>
+</script>**
   
   
   
