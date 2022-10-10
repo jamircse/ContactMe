@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="contact_form">
+            <form name="submit-to-google-sheet">
+                <input type="text" name="Name" class="username"  placeholder="You Name  " required>
+                <input type="email" name="Email" class="email"  placeholder="You email " required>
+                <input type="text" name="Phone" class="phone"  placeholder="You Phone No " required>
+                <textarea name="Message" id="message" rows="4" placeholder="How can We help You ?"></textarea>
+                <button type="submit">Send</button>
+                <span class="msg"></span>
+            </form>
+        </div>
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxK0j7fS_sedkQUQyFW85okFz2zLMARG6Xv93YyclBMiQCDd3TEDt3k4FxdNmuIAOVK/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const message=document.querySelector(".msg");
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                message.innerHTML="Message sent successfully..";
+                setTimeout(()=>{
+                    message.innerHTML=" ";
+                },5000);
+                form.reset();
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+    <script src="custome.js"></script>
+</body>
+</html>
