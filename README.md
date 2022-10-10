@@ -83,6 +83,9 @@ IMPORTANT! If you have a custom domain with Gmail, you might need to click OK, r
 6. Input your web app URL
 Open the file named index.html. On line 12 replace <SCRIPT URL> with your script url:
 
+  
+  
+  
 <form name="submit-to-google-sheet">
   <input name="email" type="email" placeholder="Email" required>
   <button type="submit">Send</button>
@@ -99,6 +102,9 @@ Open the file named index.html. On line 12 replace <SCRIPT URL> with your script
       .catch(error => console.error('Error!', error.message))
   })
 </script>
+  
+  
+  
 As you can see, this script uses the the Fetch API, a fairly new promise-based mechanism for making web requests. It makes a "POST" request to your script URL and uses FormData to pass in our data as URL paramters.
 
 Because Fetch and FormData aren't fully supported, you'll likely want to include their respective polyfills. See section #8.
@@ -108,12 +114,17 @@ Fun fact! The <html>, <head>, and body tags are actually among a handful of opti
 7. Adding additional form data
 To capture additional data, you'll just need to create new columns with titles matching exactly the name values from your form inputs. For example, if you want to add first and last name inputs, you'd give them name values like so:
 
+  
+  
 <form name="submit-to-google-sheet">
   <input name="email" type="email" placeholder="Email" required>
   <input name="firstName" type="text" placeholder="First Name">
   <input name="lastName" type="text" placeholder="Last Name">
   <button type="submit">Send</button>
 </form>
+  
+  
+  
 Then create new headers with the exact, case-sensitive name values:
 
 A	B	C	D	...
@@ -127,6 +138,8 @@ FormData Polyfill
 Since the FormData polyfill is published as a Node package and needs to be compiled for browsers to work with, a good option for including these is using Browserify's CDN called wzrd.in. This service compiles, minifies and serves the latest version of these scripts for us.
 
 You'll want to make sure these load before the main script handling the form submission. e.g.:
+  
+  
 
 <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
 <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
@@ -137,6 +150,8 @@ You'll want to make sure these load before the main script handling the form sub
   const form = document.forms['submit-to-google-sheet']
   ...
 </script>
+  
+  
 Have feedback/requests/issues?
 Please create a new issue. PRs are definitely welcome, but please run your ideas by me before putting in a lot of work. Thanks!
 
