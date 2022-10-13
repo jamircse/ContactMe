@@ -16,18 +16,15 @@
     display:flex;
     justify-content: center;
     align-items: center;
-   width:90%;  
+    width:90%;  
 }
-
- 
-
-
 
 form{
     background: #fff;
     display:flex;
     flex-direction: column;
     padding:2vw 4vw;
+    inset:2px;
     width:90%;
     max-height:600px;
     border-radius:10px;
