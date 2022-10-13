@@ -16,8 +16,10 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    width:90%;
-    height:90%;
+/*     width:90%;
+    height:90%; */
+    width: 380px;
+    height:420px;
     overflow: hidden;
     
 }
