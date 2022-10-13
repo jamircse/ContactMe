@@ -17,8 +17,53 @@
     justify-content: center;
     align-items: center;
     width:90%;
+    overflow:hidden;
     
 }
+
+ .contact_form::before{
+    content:'';
+    position:absolute;
+    top: -50%;
+    left:-50%;
+    width: 380px;
+    height:420px;
+    background:linear-gradient(0deg,transparent,#45f3ff,#45f3ff);
+    transform-origin:bottom right;
+    animation:animate 8s linear infinite;  
+} 
+.contact_form::after{
+    content:'';
+    position:absolute;
+    top:-50%;
+    left:-50%;
+    width: 380px;
+    height:420px;
+    background:linear-gradient(0deg,transparent,#d400d4,#d400d4);
+    transform-origin:bottom right;
+    animation:animate 8s linear infinite;
+    animation-delay: -4s;
+    
+} 
+
+
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+/* form{
+    position: absolute; 
+    inset: 2px;
+    border-radius:8px;
+    z-index:10;
+    background:#28292d;
+} */
 form{
     background: #fff;
     display:flex;
@@ -28,6 +73,8 @@ form{
     max-height:600px;
     border-radius:10px;
     box-shadow: 0 1px 0 2px rgba(0, 0, 0, 0.3);
+    position: absolute; 
+    inset: 2px;
 }
 form input,form textarea{
     border:0;
